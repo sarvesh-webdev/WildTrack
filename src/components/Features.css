@@ -1,0 +1,28 @@
+.features {
+  margin-top: 22px;
+  padding: 30px;
+  border: 1px solid #dce2d9;
+  border-radius: 24px;
+  background: #fbfcf8;
+}
+
+.tabs {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #dce2d9;
+}
+
+.tabs a {
+  color: #6e7871;
+}
+
+.tabs .selected {
+  color: #397c49;
+  font-weight: bold;
+}
+
+.features p b {
+  float: right;
+  color: #1e2a24;
+}

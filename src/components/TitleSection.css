@@ -1,0 +1,22 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 45px 0 30px;
+}
+
+.title small {
+  color: #6c7970;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+.title h1 {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.title p {
+  color: #77817a;
+}

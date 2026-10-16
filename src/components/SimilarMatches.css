@@ -1,0 +1,21 @@
+.similar {
+  margin-top: 30px;
+}
+
+.similar p {
+  color: #77817a;
+}
+
+.matches {
+  display: flex;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.matches article {
+  flex: 1;
+  padding: 22px;
+  border: 1px solid #dce2d9;
+  border-radius: 16px;
+  background: #fbfcf8;
+}
