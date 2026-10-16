@@ -7,9 +7,9 @@ export default function Sidebar() {
       <p className="tagline">CONSERVATION INTELLIGENCE</p>
 
       <nav>
-        <a>▦ &nbsp; Dashboard</a>
+        {/* <a>▦ &nbsp; Dashboard</a> */}
         <a className="active">◎ &nbsp; Identify</a>
-        <a>▥ &nbsp; Analytics</a>
+        {/* <a>▥ &nbsp; Analytics</a> */}
       </nav>
 
     </aside>

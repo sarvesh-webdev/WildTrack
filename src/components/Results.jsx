@@ -27,7 +27,10 @@ export function Results() {
 
             const detectFrame = async () => {
               const predictions = await model.detect(videoRef.current);
-              console.log("Predictions:", predictions); // debug log
+              
+                // if (predictions.length > 0) {
+                //     console.log("Detections:", predictions);
+                // } // debug log
 
               ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
