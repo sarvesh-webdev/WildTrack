@@ -8,7 +8,7 @@ export default function TitleSection() {
         <h1>Individual match found</h1>
         <p>AI-assisted re-identification from camera trap imagery.</p>
       </div>
-      <button className="new">⇧ &nbsp; New identification</button>
+      <button className="new">⇧ &nbsp; Start identification</button>
     </section>
   );
 }

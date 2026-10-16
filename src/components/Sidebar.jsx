@@ -8,17 +8,10 @@ export default function Sidebar() {
 
       <nav>
         <a>▦ &nbsp; Dashboard</a>
-        <a>⇧ &nbsp; Upload</a>
         <a className="active">◎ &nbsp; Identify</a>
         <a>▥ &nbsp; Analytics</a>
-        <a>⚙ &nbsp; Settings</a>
       </nav>
 
-      <div className="impact">
-        <h3>✧ AI for the wild</h3>
-        <p>Every match helps researchers protect vulnerable species.</p>
-        <a>View impact →</a>
-      </div>
     </aside>
   );
 }

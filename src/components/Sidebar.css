@@ -37,23 +37,4 @@
   color: white;
 }
 
-.impact {
-  position: absolute;
-  right: 22px;
-  bottom: 35px;
-  left: 22px;
-  padding: 20px;
-  border: 1px solid #38674e;
-  border-radius: 18px;
-  background: #205239;
-}
 
-.impact p {
-  color: #b6cabb;
-  line-height: 1.5;
-}
-
-.impact a {
-  color: #ffda61;
-  font-weight: bold;
-}

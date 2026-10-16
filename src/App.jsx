@@ -1,13 +1,16 @@
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import TitleSection from "./TitleSection";
-import { Results } from "./Results";
-import Features from "./Features";
-import SimilarMatches from "./SimilarMatches";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import TitleSection from "./components/TitleSection";
+import { Results } from "./components/Results";
+import Features from "./components/Features";
+import SimilarMatches from "./components/SimilarMatches";
+
 
 import './App.css'
 
 function App() {
+
+  
   
 
   return (
