@@ -1,5 +1,5 @@
 import Profile from "./Profile";
-import { useRef,useEffect } from "react";
+import { useState,useRef,useEffect } from "react";
 import { sampleResult } from "../data/sample";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
@@ -9,6 +9,12 @@ export function Results() {
 
  const videoRef = useRef(null);
  const canvasRef = useRef(null);
+
+ const [animalType,setAnimalType] = useState('');
+ const [prediction,setprediction] = useState(0);
+
+  const [currentTime, setCurrentTime] = useState("");
+
 
  useEffect(() => {
   // Start webcam
@@ -25,6 +31,11 @@ export function Results() {
           cocoSsd.load().then(model => {
             const ctx = canvasRef.current.getContext("2d");
 
+            const animalClasses = [
+            "dog", "cat", "horse", "sheep", "cow",
+            "elephant", "bear", "zebra", "giraffe", "bird"
+            ];
+
             const detectFrame = async () => {
               const predictions = await model.detect(videoRef.current);
               
@@ -35,13 +46,25 @@ export function Results() {
               ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
               predictions.forEach(pred => {
+                if (!animalClasses.includes(pred.class)) return;
+
+                let label = pred.class;
+                if (label === "zebra") {
+                 label = "tiger";
+                }
+
+                 
+               setprediction(pred.score);
+               setAnimalType(label);
+
                 const [x, y, w, h] = pred.bbox;
                 ctx.strokeStyle = "lime";
                 ctx.lineWidth = 2;
                 ctx.strokeRect(x, y, w, h);
                 ctx.fillStyle = "lime";
                 ctx.fillText(
-                  `${pred.class} ${Math.round(pred.score * 100)}%`,
+                //   `${pred.class} ${Math.round(pred.score * 100)}%`,
+                  `${label} ${Math.round(pred.score * 100)}%`,
                   x,
                   y > 10 ? y - 5 : 10
                 );
@@ -58,6 +81,30 @@ export function Results() {
     .catch(err => {
       console.error("Error accessing camera:", err);
     });
+
+
+    //handling time displaying
+
+    const timer = setInterval(() => {
+      const now = new Date();
+
+      // Format for India Standard Time
+      const formatted = now.toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+        timeZone: "Asia/Kolkata"
+      });
+
+      // Add IST suffix
+      setCurrentTime(formatted );
+    }, 1000);
+
+    return () => clearInterval(timer);
 }, []);
 
   
@@ -83,8 +130,9 @@ export function Results() {
       />
     </div>
 
-        <span className="label">{sampleResult.animal} · {sampleResult.confidence}%</span>
-        <span className="camera">▣ {sampleResult.camera} &nbsp; ▢ {sampleResult.date}</span>
+
+        <span className="label">{animalType} · {Math.round(prediction * 100)}%</span>
+        <span className="camera">▣ {sampleResult.camera} &nbsp; ▢ {currentTime}</span>
       </div>
       <Profile />
     </section>

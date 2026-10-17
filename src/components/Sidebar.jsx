@@ -8,7 +8,7 @@ export default function Sidebar() {
 
       <nav>
         {/* <a>▦ &nbsp; Dashboard</a> */}
-        <a className="active">◎ &nbsp; Identify</a>
+        <a className="active" href="/">◎ &nbsp; Identify</a>
         {/* <a>▥ &nbsp; Analytics</a> */}
       </nav>
 
