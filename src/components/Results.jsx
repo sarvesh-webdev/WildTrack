@@ -5,8 +5,10 @@ import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import "./Results.css";
 
-export function Results() {
+export function Results({backendResult,setBackendResult}) {
+
   
+
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -95,12 +97,16 @@ export function Results() {
 
       const result = await response.json();
 
+      
+
      
 
       console.log(
         "📥 Backend result:",
         result
       );
+
+      setBackendResult(result);
 
       // =====================================================
       // HANDLE BACKEND RESULT
@@ -467,7 +473,7 @@ export function Results() {
 
       </div>
 
-      <Profile />
+      <Profile backendResult={backendResult}/>
 
     </section>
   );

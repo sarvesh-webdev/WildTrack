@@ -2,20 +2,20 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import TitleSection from "../components/TitleSection";
 import { Results } from "../components/Results";
-import { useState } from "react";
 import SimilarMatches from "../components/SimilarMatches";
 import "./IdentifyPage.css";
 
-export default function IdentifyPage() {
-  const [backendResult,setBackendResult] = useState({});
+export default function IdentifyPage({backendResult,setBackendResult}) {
+ 
+  
   return (
     <div className="app">
        <Sidebar />
       <main>
         <Header />
         <TitleSection />
-        <Results setBackendResult={setBackendResult} backendResult={backendResult}/>
-        <SimilarMatches />
+        <Results  backendResult={backendResult} setBackendResult={setBackendResult}/>
+        <SimilarMatches backendResult={backendResult}/>
       </main>
     </div>
   );

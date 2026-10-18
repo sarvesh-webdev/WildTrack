@@ -2,17 +2,30 @@ import "./Profile.css";
 import { tigerProfile } from "../data/tigerprofile";
 import { useNavigate } from "react-router-dom";
 
-export default function Profile() {
+export default function Profile({backendResult}) {
     const {
-    name,
     species,
     gender,
-    confidence,
     lastSeen,
-    knownSince,
-    status
+    knownSince
   } = tigerProfile;
 
+   function getConfidenceStatus(confidence) {
+  if (confidence >= 90) {
+    return "High confidence match";
+  }
+
+  if (confidence >= 70) {
+    return "Moderate confidence match";
+  }
+
+  return "Low confidence match — needs review";
+}
+
+const confidence = backendResult?.confidence != null ? Math.round(backendResult.confidence ):0;
+const status = getConfidenceStatus(confidence); 
+
+const name = backendResult?.identity;
   
   const navigate = useNavigate();
 
